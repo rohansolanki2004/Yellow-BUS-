@@ -11,13 +11,16 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2026_04_27_100514) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
     t.date "booking_date"
     t.float "total_ammount"
     t.string "status"
     t.integer "ticket_count"
-    t.integer "user_id", null: false
-    t.integer "schedule_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "schedule_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "seat_number"
@@ -38,15 +41,15 @@ ActiveRecord::Schema[7.1].define(version: 2026_04_27_100514) do
     t.integer "level"
     t.string "bus_type"
     t.integer "capacity"
-    t.integer "bus_partner_id", null: false
+    t.bigint "bus_partner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bus_partner_id"], name: "index_buses_on_bus_partner_id"
   end
 
   create_table "route_stops", force: :cascade do |t|
-    t.integer "route_id", null: false
-    t.integer "stop_id", null: false
+    t.bigint "route_id", null: false
+    t.bigint "stop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position"
@@ -62,8 +65,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_04_27_100514) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer "bus_id", null: false
-    t.integer "route_id", null: false
+    t.bigint "bus_id", null: false
+    t.bigint "route_id", null: false
     t.datetime "departure_time"
     t.datetime "arrival_time"
     t.datetime "created_at", null: false
@@ -75,7 +78,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_04_27_100514) do
   create_table "seats", force: :cascade do |t|
     t.string "seat_type"
     t.integer "seat_number"
-    t.integer "bus_id", null: false
+    t.bigint "bus_id", null: false
     t.integer "position_deck"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,8 +95,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_04_27_100514) do
     t.integer "seat_number"
     t.string "passanger_name"
     t.integer "passanger_age"
-    t.integer "seat_id", null: false
-    t.integer "booking_id", null: false
+    t.bigint "seat_id", null: false
+    t.bigint "booking_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_tickets_on_booking_id"
