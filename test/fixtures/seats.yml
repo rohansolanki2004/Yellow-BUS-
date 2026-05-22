@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seat_type: MyString
+  seat_number: 1
+  bus: one
+  position_deck: 1
+
+two:
+  seat_type: MyString
+  seat_number: 1
+  bus: two
+  position_deck: 1

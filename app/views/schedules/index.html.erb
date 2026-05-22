@@ -1,0 +1,35 @@
+
+<h1>Schedules for Bus <%= @bus.bus_number %></h1>
+
+<%= link_to "New Schedule", new_bus_schedule_path(@bus) %>
+
+<table border="1" cellpadding="5">
+  <thead>
+    <tr>
+      <th>Route</th>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.route.try(:name) %></td>
+        <td><%= schedule.departure_time %></td>
+        <td><%= schedule.arrival_time %></td>
+
+        <td><%= link_to "Show", bus_schedule_path(@bus, schedule) %></td>
+        <td><%= link_to "Edit", edit_bus_schedule_path(@bus, schedule) %></td>
+        <td>
+          <%= link_to "Delete", bus_schedule_path(@bus, schedule), method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "Back to Buses", buses_path %>

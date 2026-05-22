@@ -1,0 +1,26 @@
+<h1>Book Tickets</h1>
+<h2>Select Seats</h2>
+
+<%= form_with model: @booking, url: schedule_bookings_path(@schedule) do |f| %>
+
+  <div class="seat-grid">
+    <% @seats.each do |seat| %>
+
+      <% booked = @booked_seat_ids.include?(seat.id) %>
+
+      <label style="margin:6px; display:inline-block;">
+        <%= check_box_tag "booking[seat_ids][]",seat.id,false,disabled: booked %>
+        Seat <%= seat.seat_number %>
+        
+        <% if booked %>
+          <span style="color:red;">(Booked)</span>
+        <% end %>
+      </label>
+
+    <% end %>
+  </div>
+
+  <br>
+  <%= f.submit "Confirm Booking" %>
+
+<% end %>

@@ -1,0 +1,31 @@
+<%= form_with model: @route do |f| %>
+
+  <% if @route.errors.any? %>
+    <div>
+      <% @route.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= f.label :start_location %>
+  <%= f.text_field :start_location %><br>
+
+  <%= f.label :destination %>
+  <%= f.text_field :destination %><br>
+
+  <%= label_tag "Stops" %><br>
+  <h3>Select Stops</h3>
+
+<% Stop.all.each do |stop| %>
+  <div>
+    <%= check_box_tag "route[stop_ids][]", stop.id, false %>
+    <%= stop.stop_name %>
+  </div>
+<% end %>
+
+  <br><br>
+
+  <%= f.submit %>
+
+<% end %>

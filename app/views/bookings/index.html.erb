@@ -1,0 +1,21 @@
+<h1>Available Buses</h1>
+
+<% if notice %>
+  <p style="color: green;"><%= notice %></p>
+<% end %>
+
+
+
+  <% @schedules.each do |schedule| %>
+    <% bus=schedule.bus%>
+    <% route=schedule.route %>
+      <%= route.start_location %>->
+      <%= route.destination %><br>
+      at: <%= schedule.departure_time %>
+
+    <%= link_to "Create New Booking", new_booking_path(schedule_id: schedule.id), class: "btn btn-primary" %>
+     <br><br>
+     
+  <% end %>
+
+<br>

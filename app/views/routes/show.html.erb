@@ -1,0 +1,9 @@
+<h2><%= @route.start_location %> → <%= @route.destination %></h2>
+
+<h3>Stops:</h3>
+
+<% @route.route_stops.each do |rs| %>
+  <p>
+    <%= rs.position %>. <%= rs.stop.stop_name %>
+  </p>
+<% end %>

@@ -1,0 +1,30 @@
+<%= form_with model: @bus do |f| %>
+  <% if @bus.errors.any? %>
+  <div class="error-messages">
+    <h4>Fix the following errors:</h4>
+    <ul>
+      <% @bus.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+  <%= f.label :bus_number %>
+  <%= f.text_field :bus_number %><br>
+
+   <%= f.label :no_of_level %>
+   <%= select_tag :level, options_for_select([["Level 1", 1], ["Level 2", 2]]) %><br>
+
+  <%= f.label :bus_type %>
+    <%= select_tag :bus_type, options_for_select([["Seating", "seating"], ["Sleeper", "sleeper"]]) %><br>
+
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity %><br>
+
+  <%= f.label :bus_partner_id %>
+  <%= f.number_field :bus_partner_id %><br>
+
+  <%= f.submit %>
+<% end %>

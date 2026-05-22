@@ -1,0 +1,26 @@
+<h1>Schedule Details</h1>
+
+<p>
+  <strong>Bus:</strong>
+  <%= @bus.bus_number %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= "#{@schedule.route.start_location} → #{@schedule.route.destination}" %>
+</p>
+
+<p>
+  <strong>Departure Time:</strong>
+  <%= @schedule.departure_time %>
+</p>
+
+<p>
+  <strong>Arrival Time:</strong>
+  <%= @schedule.arrival_time %>
+</p>
+
+<br>
+
+<%= link_to "Edit", edit_bus_schedule_path(@bus, @schedule) %> |
+<%= link_to "Back", bus_schedules_path(@bus) %>

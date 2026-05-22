@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bus_number: MyString
+  level: 1
+  bus_type: MyString
+  capacity: 1
+  bus_partner: one
+
+two:
+  bus_number: MyString
+  level: 1
+  bus_type: MyString
+  capacity: 1
+  bus_partner: two

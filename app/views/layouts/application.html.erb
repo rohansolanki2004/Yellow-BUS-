@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yellow</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+     <% if notice %>
+      <p style="color: green;"><%= notice %></p>
+     <% end %>
+
+     <% if alert %>
+       <p style="color: red;"><%= alert %></p>
+     <% end %>
+
+     <% if current_user %>
+       <%= button_to "Logout", logout_path, method: :delete %>
+     <% else %>
+       <%= link_to "Login", login_path %>
+       <%= link_to "Sign Up", signup_path %>
+     <% end %>
+     <%= link_to "Available Buses", bookings_path %> |
+     <%= link_to "All Buses", buses_path %>| 
+     <%= link_to "Routes", routes_path %>| 
+      <%= link_to "buses", buses_path %><br><br>
+         <%= yield %>
+  </body>
+</html>
+
+

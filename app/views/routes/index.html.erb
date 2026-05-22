@@ -1,0 +1,12 @@
+
+
+<%= link_to "New Route", new_route_path %>
+<% @routes.each do |route| %>
+  <p>
+    id : <%= route.id %><br>
+    <%= route.start_location %> → <%= route.destination %>
+    <%= link_to "Show", route %>
+   <%= link_to "Delete", route_path(route),
+    data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  </p>
+<% end %>

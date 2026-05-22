@@ -1,0 +1,20 @@
+<br><%= link_to "New Bus", new_bus_path %>
+<h1> All buses</h1>
+
+<% @buses.each do |bus| %>
+  <p>
+    <%= bus.bus_number %> |
+    <%= bus.level %> |
+    <%= bus.bus_type %>
+    <%= bus.capacity %>
+    <%= bus.bus_partner_id %>
+
+
+    <%= link_to "Show", bus %>
+    <%= link_to "Edit", edit_bus_path(bus) %>
+    <%= button_to "Delete", bus_path(bus),method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    <td>
+    <%= link_to "Schedules", bus_schedules_path(bus) %>
+    </td>
+  </p>
+<% end %>

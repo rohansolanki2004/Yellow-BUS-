@@ -1,0 +1,20 @@
+<h2><%= @bus.bus_number %></h2>
+<p>Type: <%= @bus.bus_type %></p>
+<p>Capacity: <%= @bus.capacity %></p>
+
+<% @seats_by_deck.each do |deck, seats| %>
+  <h3>Deck <%= deck %></h3>
+
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+    <% seats.each do |seat| %>
+      <div style="border: 1px solid #ccc; padding: 10px; text-align: center;">
+        Seat <%= seat.seat_number %><br>
+        Type: <%= seat.seat_type %><br>
+        pos: <%= seat.position_deck %>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+<% end %>
+<%= link_to "Back", buses_path %>

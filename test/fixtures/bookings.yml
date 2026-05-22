@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_date: 2026-04-27
+  total_ammount: 1.5
+  status: MyString
+  ticket_count: 1
+  user: one
+  schedule: one
+
+two:
+  booking_date: 2026-04-27
+  total_ammount: 1.5
+  status: MyString
+  ticket_count: 1
+  user: two
+  schedule: two
